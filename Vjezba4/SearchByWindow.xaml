@@ -1,0 +1,38 @@
+﻿<Window x:Class="Vjezba4.SearchByWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Vjezba4"
+        mc:Ignorable="d"
+        Title="SearchByWindow" Height="450" Width="800">
+    <Grid>
+
+
+        <TextBox  x:Name="textbox" HorizontalAlignment="Left" Margin="192,60,0,0" Text="{Binding Name}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="15" IsReadOnly="True" />
+        <Label Content="Name" HorizontalAlignment="Left" Margin="48,60,0,0" VerticalAlignment="Top" Width="52"/>
+        <Label Content="Surname" HorizontalAlignment="Left" Height="28" Margin="48,100,0,0" VerticalAlignment="Top" Width="56"/>
+        <TextBox HorizontalAlignment="Left"  Margin="192,107,0,0" Text="{Binding Surname}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="15" />
+        <Label Content="OIB" HorizontalAlignment="Left" Height="24" Margin="48,140,0,0"  VerticalAlignment="Top" Width="52"/>
+        <TextBox HorizontalAlignment="Left" Height="15" Margin="192,147,0,0" Text= "{Binding Oib}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Date of birth" HorizontalAlignment="Left" Height="24" Margin="48,180,0,0" VerticalAlignment="Top" Width="91"/>
+        <DatePicker HorizontalAlignment="Left" Margin="192,180,0,0" VerticalAlignment="Top" SelectedDate="{Binding Date}"/>
+        <Label Content="Sex" HorizontalAlignment="Left" Height="24" Margin="48,220,0,0" VerticalAlignment="Top" Width="52"/>
+        <RadioButton Content="M" HorizontalAlignment="Left" Margin="192,225,0,0" VerticalAlignment="Top"/>
+        <RadioButton Content="Z" HorizontalAlignment="Left" Margin="265,225,0,0" VerticalAlignment="Top"/>
+        <Label Content="Account number" HorizontalAlignment="Left" Height="24" Margin="48,260,0,0" VerticalAlignment="Top" Width="108"/>
+        <TextBox HorizontalAlignment="Left" Height="15" Margin="192,260,0,0" Text="{Binding AccountNumber}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" ></TextBox>
+        <Label Content="Amount" HorizontalAlignment="Left" Height="25" Margin="48,300,0,0" VerticalAlignment="Top" Width="91"/>
+        <TextBox HorizontalAlignment="Left" Height="15" Margin="192,300,0,0" Text="{Binding Amount}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Account type" HorizontalAlignment="Left" Height="28" Margin="48,340,0,0" VerticalAlignment="Top" Width="91"/>
+        <ComboBox HorizontalAlignment="Left" Height="24" Margin="192,340,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="Saving"/>
+            <ComboBoxItem Content="Giro"/>
+            <ComboBoxItem Content="Current"/>
+        </ComboBox>
+        
+
+
+
+    </Grid>
+</Window>
