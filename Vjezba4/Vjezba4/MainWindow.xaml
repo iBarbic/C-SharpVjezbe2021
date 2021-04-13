@@ -20,7 +20,7 @@
         <TextBox HorizontalAlignment="Left" Height="15" Margin="192,147,0,0" Text= "{Binding Oib}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label Content="Date of birth" HorizontalAlignment="Left" Height="24" Margin="48,180,0,0" VerticalAlignment="Top" Width="91"/>
         <DatePicker x:Name="DateBox" HorizontalAlignment="Left" Margin="192,180,0,0" VerticalAlignment="Top" SelectedDate="{Binding Date}"/>
-        <Label Content="Sex" HorizontalAlignment="Left" Height="24" Margin="48,220,0,0" VerticalAlignment="Top" Width="52"/>
+        <Label Content="Gender" HorizontalAlignment="Left" Height="24" Margin="48,220,0,0" VerticalAlignment="Top" Width="52"/>
         <RadioButton x:Name ="RadioMale" Content="Male" HorizontalAlignment="Left" Margin="192,225,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name ="RadioFemale" Content="Female" HorizontalAlignment="Left" Margin="265,225,0,0" VerticalAlignment="Top"/>
         <Label Content="Account number" HorizontalAlignment="Left" Height="24" Margin="48,260,0,0" VerticalAlignment="Top" Width="108"/>
