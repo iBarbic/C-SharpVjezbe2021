@@ -56,5 +56,12 @@ namespace Vjezba5
             decimal result = input * Convert.ToDecimal(value);
             tbox2.Text = result.ToString();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            int temp = myCombobox.SelectedIndex;
+            myCombobox.SelectedIndex = myCombobox1.SelectedIndex;
+            myCombobox1.SelectedIndex = temp;
+        }
     }
 }

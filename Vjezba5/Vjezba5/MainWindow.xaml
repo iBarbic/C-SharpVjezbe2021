@@ -7,11 +7,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <ComboBox x:Name="myCombobox" HorizontalAlignment="Left" Margin="117,189,0,0" VerticalAlignment="Top" Width="120"/>
-        <ComboBox x:Name="myCombobox1" HorizontalAlignment="Left" Margin="487,189,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="tbox1" HorizontalAlignment="Left" Height="22" Margin="267,189,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="133"/>
-        <TextBox x:Name="tbox2" HorizontalAlignment="Left" Height="25" Margin="645,186,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="126" IsReadOnly="True"/>
-        <Button Content="Pretvori" HorizontalAlignment="Left" Height="70" Margin="320,295,0,0" VerticalAlignment="Top" Width="185" Click="Button_Click"/>
+        <ComboBox x:Name="myCombobox" HorizontalAlignment="Left" Margin="26,189,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="myCombobox1" HorizontalAlignment="Left" Margin="485,189,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbox1" HorizontalAlignment="Left" Height="22" Margin="170,189,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="133"/>
+        <TextBox x:Name="tbox2" HorizontalAlignment="Left" Height="25" Margin="647,187,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="126" IsReadOnly="True"/>
+        <Button Content="Pretvori" HorizontalAlignment="Center" Height="70" Margin="0,294,0,0" VerticalAlignment="Top" Width="184" Click="Button_Click"/>
+        <Button Content="Zamijeni" HorizontalAlignment="Center" Height="30" Margin="0,187,0,0" VerticalAlignment="Top" Width="104" Click="Button_Click_1"/>
 
 
     </Grid>
