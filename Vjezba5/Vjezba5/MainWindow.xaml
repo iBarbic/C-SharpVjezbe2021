@@ -13,7 +13,6 @@
         <TextBox x:Name="tbox2" HorizontalAlignment="Left" Height="25" Margin="647,187,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="126" IsReadOnly="True"/>
         <Button Content="Pretvori" HorizontalAlignment="Center" Height="70" Margin="0,294,0,0" VerticalAlignment="Top" Width="184" Click="Button_Click"/>
         <Button Content="Zamijeni" HorizontalAlignment="Center" Height="30" Margin="0,187,0,0" VerticalAlignment="Top" Width="104" Click="Button_Click_1"/>
-
-
+        
     </Grid>
 </Window>
