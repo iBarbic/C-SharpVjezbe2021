@@ -23,21 +23,14 @@ namespace Vjezba5
     public partial class MainWindow : Window
     {
         List<Currency> currencies = new();
-        string json;
+        //string json;
 
         public MainWindow()
         {
             InitializeComponent();
             GetData();
-           
-            this.DataContext = currencies;
-            foreach (var cur in currencies )
-            {
-                myCombobox.Items.Add(cur.Country);
-                myCombobox1.Items.Add(cur.Country);
-            }
-            myCombobox.SelectedIndex = 0;
-            myCombobox1.SelectedIndex = 0;
+            InitCombox();
+            
 
         }
 
@@ -45,6 +38,20 @@ namespace Vjezba5
         {
             string json = new WebClient().DownloadString("https://api.hnb.hr/tecajn/v1");
             currencies = JsonConvert.DeserializeObject<List<Currency>>(json);
+
+        }
+        public void InitCombox()
+
+        {
+            this.DataContext = currencies;
+            foreach (var cur in currencies)
+            {
+                myCombobox.Items.Add(cur.Country);
+                myCombobox1.Items.Add(cur.Country);
+            }
+            myCombobox.SelectedIndex = 0;
+            myCombobox1.SelectedIndex = 0;
+
 
         }
 
