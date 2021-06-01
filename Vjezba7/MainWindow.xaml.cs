@@ -34,9 +34,9 @@ namespace Vjezba7
     public partial class MainWindow : Window
     {
         public MarkType[] results;
-        private bool playerTurn;
-        private bool gameEnded;
-        private bool ai;
+        public bool playerTurn;
+        public bool gameEnded;
+        public bool ai;
         TicTacToeEntities db = new TicTacToeEntities();
         Players player1 = new Players();
         Players player2 = new Players();
@@ -120,106 +120,67 @@ namespace Vjezba7
             if (results[index] != MarkType.Free)
                 return;
 
-
             if (ai)
             {
                 results[index] = MarkType.Cross;
                 button.Content = "X";
-                var aiButton = AIMove();
-                var aiColumn = Grid.GetColumn(button);
-                var aiRow = Grid.GetRow(button);
-                var aiIndex = column + (row * 3);
-                results[aiIndex] = MarkType.Circle;
-                aiButton.Content = "O";
+                CheckForWinner();
+                if (gameEnded != true)
+                {
+                    var aiButton = AIMove();
+                    var aiColumn = Grid.GetColumn(aiButton);
+                    var aiRow = Grid.GetRow(aiButton);
+                    var aiIndex = aiColumn + (aiRow * 3);
+                    results[aiIndex] = MarkType.Circle;
+                    aiButton.Content = "O";
+                }
                 playerTurn = true;
+
                
             }
             else
             {
                 results[index] = playerTurn ? MarkType.Cross : MarkType.Circle;
                 button.Content = playerTurn ? "X" : "O";
-                //results[0] = MarkType.Circle;
-
                 playerTurn ^= true;
             }
-            
-           
             CheckForWinner();
-
-
-
-
         }
         public Button AIMove()
         {
             Random r = new Random();
             int rInt = r.Next(0, 8);
-            //rInt = 0;
-            //var check = new Button();
-            if (rInt == 0)
+            if(results[rInt]== MarkType.Free)
             {
-                if (results[rInt] != MarkType.Free)
-                    AIMove();
-                else
+                if (rInt == 0)
                     return Button0_0;
-            }
-            if (rInt == 1)
-            {
-                if (results[rInt] != MarkType.Free)
-                    AIMove();
-                else
-                    return Button1_0;
-            }
-            if (rInt == 2)
-            {
-                if (results[rInt] != MarkType.Free)
-                    AIMove();
-                else
-                    return Button2_0;
-            }
-            if (rInt == 3)
-            {
-                if (results[rInt] != MarkType.Free)
-                    AIMove();
-                else
-                    return Button0_1;
-            }
-            if (rInt == 4)
-            {
-                if (results[rInt] != MarkType.Free)
-                    AIMove();
-                else
-                    return Button1_1;
-            }
-            if (rInt == 5)
-            {
-                if (results[rInt] != MarkType.Free)
-                    AIMove();
-                else
-                    return Button2_1;
-            }
-            if (rInt == 6)
-            {
-                if (results[rInt] != MarkType.Free)
-                    AIMove();
-                else
-                    return Button0_2;
-            }
-            if (rInt == 7)
-            {
-                if (results[rInt] != MarkType.Free)
-                    AIMove();
-                else
-                    return Button1_2;
-            }
-            if (rInt == 8)
-            {
-                if (results[rInt] != MarkType.Free)
-                    AIMove();
-                else
-                    return Button2_2;
-            }
 
+                if (rInt == 1)
+                    return Button1_0;
+
+                if (rInt == 2)
+                    return Button2_0;
+
+                if (rInt == 3)
+                    return Button0_1;
+
+                if (rInt == 4)
+                    return Button1_1;
+
+                if (rInt == 5)
+                    return Button2_1;
+
+                if (rInt == 6)
+                    return Button0_2;
+
+                if (rInt == 7)
+                    return Button1_2;
+
+                if (rInt == 8)
+                    return Button2_2;
+
+            }
+  
             return AIMove();
             
 
