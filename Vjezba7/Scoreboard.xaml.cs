@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,7 @@ namespace Vjezba7
         {
             InitializeComponent();
             GetData();
+            SortData();
 
 
         }
@@ -32,6 +34,23 @@ namespace Vjezba7
             TicTacToeEntities db = new TicTacToeEntities();
             var data = from d in db.Players select d;
             myData.ItemsSource = data.ToList();
+          
+            
+            
+            
+
+
+        }
+        public void SortData()
+        {
+            var column = myData.Columns[1];
+            myData.Items.SortDescriptions.Clear();
+            myData.Items.SortDescriptions.Add(new SortDescription(column.SortMemberPath, ListSortDirection.Descending));
+            foreach (var col in myData.Columns)
+            {
+                col.SortDirection = null;
+            }
+            myData.Items.Refresh();
 
         }
       

@@ -7,11 +7,11 @@
         mc:Ignorable="d"
         Title="Scoreboard" Height="450" Width="800">
     <Grid>
-        <DataGrid x:Name="myData" HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="792" >
+        <DataGrid x:Name="myData" HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="792" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 
                 <DataGridTextColumn Binding="{Binding Name}" Header="Name"/>
-                <DataGridTextColumn Binding="{Binding Win}" Header="Wins"/>
+                <DataGridTextColumn Binding="{Binding Win}" Header="Wins" SortDirection="Descending"/>
                 <DataGridTextColumn Binding="{Binding Lose}" Header="Lose"/>
                 <DataGridTextColumn Binding="{Binding Draw}" Header="Draw"/>
             </DataGrid.Columns>
