@@ -1,0 +1,119 @@
+﻿@page "/"
+@using System.Text.Json
+@using System.Text.Json.Serialization;
+@using Newtonsoft.Json;
+@using System.Net;
+@using System;
+
+<p>
+    <label>Unesite vrijednost</label>
+    <input @bind="inputValue1" />
+</p>
+<select class="form-control selectpicker" @bind="selectedValue1">
+    <option>--select--</option>
+    @foreach (var item in currencies)
+    {
+        <option value="@item.Country">@item.Country</option>
+        // Blazor needs to know what values it binds to!
+    }
+</select>
+<p></p>
+<select class="form-control selectpicker" @bind="selectedValue2">
+    <option>--select--</option>
+    @foreach (var item in currencies)
+    {
+        <option value="@item.Country">@item.Country</option>
+        // Blazor needs to know what values it binds to!
+    }
+</select>
+<p></p>
+<p>
+    <label>Rezultat</label>
+    <input @bind="result" />
+</p>
+<button @onclick="Convert">
+    Pretvori
+</button>
+
+
+
+
+
+@code{
+
+    List<Currency> currencies = JsonConvert.DeserializeObject<List<Currency>>(new WebClient().DownloadString("https://api.hnb.hr/tecajn/v1"));
+    private string selectedValue1;
+    private string selectedValue2;
+    private string inputValue1;
+    private string inputValue2;
+    private string result;
+
+
+    public class Currency
+    {
+
+        [JsonProperty("Broj tečajnice")]
+        public string ExchangeRateNumber { get; set; }
+        [JsonProperty("Datum primjene")]
+        public string Date { get; set; }
+        [JsonProperty("Država")]
+        public string Country { get; set; }
+        [JsonProperty("Šifra valute")]
+        public string CurrenyCode { get; set; }
+        [JsonProperty("Valuta")]
+        public string Curreny { get; set; }
+        [JsonProperty("Jedinica")]
+        public int Unit { get; set; }
+        [JsonProperty("Kupovni za devize")]
+        public decimal BuyingCurrency { get; set; }
+        [JsonProperty("Srednji za devize")]
+        public decimal MiddleCurrecy { get; set; }
+        [JsonProperty("Prodajni za devize")]
+        public decimal SellingCurrency { get; set; }
+
+
+
+
+    }
+    private void Convert()
+    {
+        decimal input = decimal.Parse(inputValue1);
+        decimal value = currencies[GetIndex(true)].MiddleCurrecy / currencies[GetIndex(false)].MiddleCurrecy;
+        decimal resultD = input * value;
+        result = resultD.ToString();
+    }
+    private int GetIndex(bool state)
+
+    {
+        int index = 0;
+        if (state)
+        {
+            foreach (var item in currencies)
+            {
+                if (item.Country == selectedValue1)
+                    return index;
+                else
+                    index++;
+
+            }
+
+        }
+        else
+        {
+            foreach (var item in currencies)
+            {
+                if (item.Country == selectedValue2)
+                    return index;
+                else
+                    index++;
+
+            }
+
+        }
+
+        return index;
+    }
+
+
+
+}
